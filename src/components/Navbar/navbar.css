@@ -1,0 +1,31 @@
+.navbar {
+    position: relative;
+    background-color: #666666;
+    padding: 0.8em 0;
+    padding-right: 50px;
+    margin-bottom: 3em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: #ccc;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #fff;
+    text-decoration: underline 2px;
+}
+
+.navbar .floating-cart {
+    position: absolute;
+    top: 55%;
+    right: 15px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}

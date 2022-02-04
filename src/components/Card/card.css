@@ -1,0 +1,68 @@
+.card {
+    width: 250px;
+    border: 3px solid #4e4e4ecc;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow: -10px 10px 1px #4e4e4ecc;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    margin-bottom: 50px;
+}
+
+.card:hover {
+    box-shadow: none;
+    transform: translate(-10px, 10px);
+    -webkit-transform: translate(-10px, 10px);
+    -moz-transform: translate(-10px, 10px);
+    -ms-transform: translate(-10px, 10px);
+    -o-transform: translate(-10px, 10px);
+}
+
+.card-body {
+    position: relative;
+}
+
+.card-img {
+    background-color: white;
+    height: 350px;
+    cursor: pointer;
+    display: flex;
+}
+
+.card img {
+    width: 100%;
+    margin: auto 0;
+}
+
+.card-favorite {
+    position: absolute;
+    font-size: 1.5em;
+    bottom: 10px;
+    right: 10px;
+    color: black;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.card-favorite:hover {
+    cursor: pointer;
+}
+
+.card-footer {
+    padding: 10px;
+    line-height: 1.5em;
+    border-top: 2px solid #4e4e4ecc;
+}
