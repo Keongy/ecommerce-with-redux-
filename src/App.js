@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Route, Routes } from 'react-router';
 import Navbar from './components/Navbar';
 import './index.css'
@@ -13,7 +13,6 @@ function App() {
   const [showcaseData, setShowcaseData] = useState();
   const [productsQuantity, setProductsQuantity] = useState([]);
   const [totalProduct, setTotalProduct] = useState(0);
-
 
   const showcaseDataProps = (props) => {
     setShowcaseData(props)
@@ -42,25 +41,21 @@ function App() {
     !duplicate && tmp.push(data)
 
     setProductsQuantity(tmp)
-    console.log("Déclenche");
   }
 
-  const totalProducts = (props) => {
-    setTotalProduct(props)
-    console.log("on rentre ici");
+  const updateProductsQuantity = (props) => {
+    setProductsQuantity(props)
   }
-
-  console.log("APP Refresh");
 
   return (
     <div className="global-container">
-      <Navbar totalProduct={totalProduct} />
+      <Navbar totalProduct={totalProduct} productsQuantity={productsQuantity} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products showcaseDataProps={showcaseDataProps} />} />
         {showcaseData && <Route path='/products/:id' element={<ProductShowcase showcaseData={showcaseData} productQuantity={addProductQuantity} />} />}
         <Route path='/contact' element={<Contact />} />
-        <Route path='/shopping-cart' element={<ShoppingCart productsQuantity={productsQuantity} totalProducts={totalProducts} />} />
+        <Route path='/shopping-cart' element={<ShoppingCart productsQuantity={productsQuantity} updateProductsQuantity={updateProductsQuantity} />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </div>

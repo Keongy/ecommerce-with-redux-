@@ -21,9 +21,7 @@ const ProductShowcase = ({ showcaseData, productQuantity }) => {
     const submitProduct = (e) => {
         e.preventDefault()
         displayText()
-
         productQuantity(showcaseData, quantity)
-        console.log("Showcase update data");
     }
 
 

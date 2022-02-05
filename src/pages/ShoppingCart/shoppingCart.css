@@ -51,5 +51,27 @@
     padding-left: 5px;
 }
 
-.shopping-cart-footer {
+.shopping-cart-payment {
+    text-align: center;
+}
+
+.shopping-cart-payment button {
+    padding: 10px 10px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.shopping-cart-payment button:hover {
+    background-color: rgb(163, 163, 163);
 }

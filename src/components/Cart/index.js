@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import './cart.css'
 
-const Cart = ({ totalProduct }) => {
+const Cart = ({ productsQuantity }) => {
+    const [TotalProducts, setTotalProducts] = useState(0);
+
+
+    useEffect(() => {
+        var tmp = 0
+        productsQuantity.map(product => {
+            return tmp = tmp + parseInt(product.quantity)
+        })
+        setTotalProducts(tmp)
+    }, [productsQuantity]);
 
 
     return (
@@ -10,7 +21,7 @@ const Cart = ({ totalProduct }) => {
                 <AiOutlineShoppingCart size={'1em'} />
                 <div className="cart-quantity">
                     <div className="cart-quantity-total">
-                        <p>{totalProduct}</p>
+                        <p>{TotalProducts}</p>
                     </div>
                 </div>
             </div>

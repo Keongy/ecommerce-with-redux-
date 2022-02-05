@@ -1,0 +1,19 @@
+.contact-email label {
+    display: block;
+    margin-top: 2em;
+}
+
+.contact-email input {
+    padding: 5px 0;
+}
+
+.contact-message label {
+    display: block;
+    margin-top: 1em;
+}
+
+.contact-send button {
+    padding: 5px;
+    margin-top: 1em;
+    cursor: pointer;
+}

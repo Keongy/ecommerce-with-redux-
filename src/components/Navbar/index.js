@@ -4,16 +4,14 @@ import Cart from '../Cart';
 import './navbar.css'
 
 
-const Navbar = ({ totalProduct }) => {
-
-    console.log('Navbar refreshed');
+const Navbar = ({ productsQuantity }) => {
 
     return (
         <div className='navbar'>
             <Link to='/'>Accueil</Link>
             <Link to='/products'>Produits</Link>
             <Link to='/contact'>Contact</Link>
-            <Link to='/shopping-cart' className='floating-cart'><Cart totalProduct={totalProduct} /></Link>
+            <Link to='/shopping-cart' className='floating-cart'><Cart productsQuantity={productsQuantity} /></Link>
         </div>
     );
 };
