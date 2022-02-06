@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './contact.css'
 
 const Contact = () => {
-
+    const [textArea, setTextArea] = useState();
 
     const handleSubmit = (e) => {
         e.preventDefault()
         alert("Message envoyé !")
+    }
+
+    const handleTextArea = (e) => {
+        setTextArea(e.target.value)
     }
 
     return (
@@ -19,9 +23,8 @@ const Contact = () => {
                 </div>
                 <div className="contact-message">
                     <label htmlFor="message">Votre message</label>
-                    <textarea id="story" name="story"
+                    <textarea id="story" name="story" value={textArea} onChange={handleTextArea} placeholder={'Votre message...'}
                         rows="5" cols="33">
-                        Votre message...
                     </textarea>
                 </div>
                 <div className="contact-send">

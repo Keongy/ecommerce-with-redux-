@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './productShowcase.css'
 
 const ProductShowcase = ({ showcaseData, productQuantity }) => {
@@ -15,8 +15,15 @@ const ProductShowcase = ({ showcaseData, productQuantity }) => {
         setShowText(true)
         setTimeout(() => {
             setShowText(false)
-        }, 500);
+        }, 1000);
     }
+
+    useEffect(() => {
+        return () => {
+            clearTimeout(displayText)
+        };
+    }, []);
+
 
     const submitProduct = (e) => {
         e.preventDefault()
