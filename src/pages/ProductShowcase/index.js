@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './productShowcase.css'
+import inventory from '../../data/inventory'
+import { useParams } from 'react-router';
 
 const ProductShowcase = ({ showcaseData, productQuantity }) => {
     const [quantity, setQuantity] = useState(1);
     const [showText, setShowText] = useState(false);
 
-
+    const { id } = useParams()
 
     const handleQuantity = (e) => {
         setQuantity(e.target.value)
@@ -19,16 +22,31 @@ const ProductShowcase = ({ showcaseData, productQuantity }) => {
     }
 
     useEffect(() => {
+
         return () => {
             clearTimeout(displayText)
         };
     }, []);
 
+    const dispatch = useDispatch()
+    const itemSelected = inventory.findIndex(item => item.title.replace(/\s+/g, "").trim() === id)
+
 
     const submitProduct = (e) => {
         e.preventDefault()
         displayText()
-        productQuantity(showcaseData, quantity)
+
+        const item = {
+            ...inventory[itemSelected],
+            quantity: Number(quantity)
+        }
+
+
+        dispatch({
+            type: "ADDITEM",
+            payload: item
+        })
+
     }
 
 

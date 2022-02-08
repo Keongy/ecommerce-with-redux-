@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useSelector } from "react-redux";
 import './cart.css'
 
-const Cart = ({ productsQuantity }) => {
-    const [TotalProducts, setTotalProducts] = useState(0);
+const Cart = () => {
+    const [quantity, setQuantity] = useState(0);
 
+    const products = useSelector(state => state.cart)
 
     useEffect(() => {
-        var tmp = 0
-        productsQuantity.map(product => {
-            return tmp = tmp + parseInt(product.quantity)
+        var totalProducts = 0
+        products.map(product => {
+            return totalProducts += Number(product.quantity)
         })
-        setTotalProducts(tmp)
-    }, [productsQuantity]);
+        setQuantity(totalProducts)
+    }, [products]);
 
 
     return (
@@ -21,7 +23,7 @@ const Cart = ({ productsQuantity }) => {
                 <AiOutlineShoppingCart size={'1em'} />
                 <div className="cart-quantity">
                     <div className="cart-quantity-total">
-                        <p>{TotalProducts}</p>
+                        <p>{quantity}</p>
                     </div>
                 </div>
             </div>

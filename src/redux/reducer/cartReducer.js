@@ -26,8 +26,14 @@ export default function cartReducer(state = INITIAL_STATE, action) {
 
 
         case "UPDATEITEM":
-            return {
+            console.log("action:", action);
 
+            const indexItem = state.cart.findIndex(product => product.id === action.payload.id)
+
+            const newCart = [...state.cart]
+            newCart[indexItem].quantity = Number(action.payload.quantity)
+            return {
+                cart: newCart
             }
 
 
