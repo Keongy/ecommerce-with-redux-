@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import inventory from '../../data/inventory';
 import './shoppingCart.css'
 
 const ShoppingCart = () => {
-    const [quantity, setQuantity] = useState(0);
     const [total, setTotal] = useState(50);
     const products = useSelector(state => state.cart)
     const dispatch = useDispatch()
@@ -21,30 +19,21 @@ const ShoppingCart = () => {
             )
         })
         setTotal(Math.round((price) * 100) / 100)
-
-
     }, [products]);
 
 
-
     const handleQuantity = (e, product) => {
-
         const indexProduct = products.findIndex(item => item.id === product)
         const updateItem = {
             ...products[indexProduct],
             quantity: Number(e.target.value)
         }
 
-
         dispatch({
             type: "UPDATEITEM",
             payload: updateItem,
         })
     }
-
-
-
-
 
     return (
         <div className='shopping-cart'>

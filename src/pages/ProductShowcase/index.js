@@ -4,11 +4,12 @@ import './productShowcase.css'
 import inventory from '../../data/inventory'
 import { useParams } from 'react-router';
 
-const ProductShowcase = ({ showcaseData, productQuantity }) => {
+const ProductShowcase = () => {
     const [quantity, setQuantity] = useState(1);
     const [showText, setShowText] = useState(false);
 
     const { id } = useParams()
+
 
     const handleQuantity = (e) => {
         setQuantity(e.target.value)
@@ -31,7 +32,6 @@ const ProductShowcase = ({ showcaseData, productQuantity }) => {
     const dispatch = useDispatch()
     const itemSelected = inventory.findIndex(item => item.title.replace(/\s+/g, "").trim() === id)
 
-
     const submitProduct = (e) => {
         e.preventDefault()
         displayText()
@@ -41,28 +41,24 @@ const ProductShowcase = ({ showcaseData, productQuantity }) => {
             quantity: Number(quantity)
         }
 
-
         dispatch({
             type: "ADDITEM",
             payload: item
         })
-
     }
-
-
 
     return (
         <div className="container">
             <div className='productShowcase'>
                 <div className="productShowcase-body">
                     <div className="productShowcase-img">
-                        <img src={process.env.PUBLIC_URL + `/img/${showcaseData.img}.png`} alt="mug" />
+                        <img src={process.env.PUBLIC_URL + `/img/${inventory[itemSelected].img}.png`} alt="mug" />
                     </div>
                 </div>
             </div >
             <div className="productShowcase-info">
-                <p className='productShowcase-title'>{showcaseData.title}</p>
-                <p className='productShowcase-price'>Prix: {showcaseData.price}€</p>
+                <p className='productShowcase-title'>{inventory[itemSelected].title}</p>
+                <p className='productShowcase-price'>Prix: {inventory[itemSelected].price}€</p>
                 <form onSubmit={submitProduct}>
                     <label htmlFor="quantity">Quantité</label>
                     <input type="number" min="1" max="99" value={quantity} onChange={handleQuantity} />

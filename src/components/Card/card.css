@@ -24,6 +24,11 @@
     -o-transform: translate(-10px, 10px);
 }
 
+.card-link {
+    text-decoration: none;
+    color: white;
+}
+
 .card-body {
     position: relative;
 }

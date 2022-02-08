@@ -1,15 +1,9 @@
 import React from 'react';
-import Card from '../../components/Card';
+import Card from '../../components/Card/index';
 import './products.css'
 import data from '../../data/inventory'
 
-const Products = ({ showcaseDataProps }) => {
-
-    const showcaseData = (props) => {
-        showcaseDataProps(props)
-    }
-
-
+const Products = () => {
     return (
         <div className='products'>
             {data.map(el => {
@@ -17,7 +11,6 @@ const Products = ({ showcaseDataProps }) => {
                     <Card
                         key={el.id}
                         data={el}
-                        showcaseData={showcaseData}
                     />
                 )
             })}
