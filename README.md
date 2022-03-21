@@ -1,5 +1,5 @@
 # See the project online : 
-## https://keongy.github.io/infinite-gallery/
+## https://keongy.github.io/ecommerce-with-redux-/
 
 ![Alt text](./public/img/ecommerce_redux_screen.jpg?raw=true "Infinite Gallery")
 
