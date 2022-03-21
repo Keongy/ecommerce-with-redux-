@@ -10,6 +10,7 @@ const ProductShowcase = () => {
 
     const { id } = useParams()
 
+    console.log("ici", id);
 
     const handleQuantity = (e) => {
         setQuantity(e.target.value)
